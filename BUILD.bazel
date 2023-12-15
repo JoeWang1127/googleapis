@@ -1,14 +1,13 @@
 package(default_visibility = ["//:__subpackages__"])
 
-load("@bazel_skylib//rules:copy_directory.bzl", "copy_directory")
-
 alias(
     name = "build_gen",
     actual = "@rules_gapic//bazel:build_file_generator",
 )
 
-copy_directory(
-    name = "copy-protos",
-    src = "google",
-    out = "output/google",
+filegroup(
+    name = "protos",
+    srcs = glob([
+        "google/**/*",
+    ]),
 )
