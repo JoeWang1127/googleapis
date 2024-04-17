@@ -21,6 +21,7 @@ load(
     "go_gapic_library",
     "go_proto_library",
     "java_gapic_assembly_gradle_pkg",
+    "java_gapic_assembly_pkg",
     "java_gapic_library",
     "java_gapic_test",
     "java_grpc_library",
@@ -116,6 +117,31 @@ java_gapic_assembly_gradle_pkg(
         ":storage_java_grpc",
         ":storage_java_proto",
         ":storage_proto",
+    ],
+)
+
+java_gapic_assembly_pkg(
+    name = "google-cloud-storage-v2-java-alt",
+    destination_path = "google-cloud-storage-v2-java",
+    gapic_generator_version = "2.30.0",
+    proto_path = "google/storage/v2",
+    protos = [
+        "storage.proto",
+        "storage_grpc_service_config.json",
+        "storage_v2.yaml",
+        "//google/api:annotations.proto",
+        "//google/api:client.proto",
+        "//google/api:field_behavior.proto",
+        "//google/api:http.proto",
+        "//google/api:launch_stage.proto",
+        "//google/api:resource.proto",
+        "//google/api:routing.proto",
+        "//google/cloud:common_resources.proto",
+        "//google/iam/v1:iam_policy.proto",
+        "//google/iam/v1:options.proto",
+        "//google/iam/v1:policy.proto",
+        "//google/type:date.proto",
+        "//google/type:expr.proto",
     ],
 )
 

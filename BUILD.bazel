@@ -1,5 +1,13 @@
+package(default_visibility = ["//:__subpackages__"])
+
 alias(
     name = "build_gen",
     actual = "@rules_gapic//bazel:build_file_generator",
 )
 
+filegroup(
+    name = "protos",
+    srcs = glob([
+        "google/**/*",
+    ]),
+)
